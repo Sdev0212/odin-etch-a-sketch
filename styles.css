@@ -2,3 +2,26 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: aquamarine;
+}
+
+#controls {
+    background-color: lightskyblue;
+    height: 10vh;
+    width: 50vw;
+    margin-bottom: 10px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: azure;
+    height: 80vh;
+    aspect-ratio: 1/1;
+}

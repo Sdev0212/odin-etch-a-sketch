@@ -1,23 +1,30 @@
 let selectedRows = 4;
 
+const inputs = document.querySelectorAll("input");
+const rowSelection = document.querySelector("#rowNumber")
+
+rowSelection.addEventListener('input', () =>{
+    selectedRows = parseFloat(rowSelection.value)
+    createDivs(selectedRows);
+} )
+
+
+
 var mouseDown = false;
 document.addEventListener("mousedown", () => {
-    console.log("mouse pressed")
     mouseDown = true;
-    console.log(mouseDown)
 })
 document.addEventListener("mouseup", () => {
-    console.log("mouse release")
     mouseDown = false;
-    console.log(mouseDown)
 })
+
 
 
 
 function createDivs (numOfRows) {
     let numOfDivs = numOfRows * numOfRows;
     const container = document.querySelector("#container");
-
+    document.querySelectorAll('.paintBlock').forEach(e => e.remove());
     for (let i=0; i<numOfDivs; i++){
         const div = document.createElement('div');
         div.classList.add('paintBlock', 'base')
@@ -25,22 +32,25 @@ function createDivs (numOfRows) {
         `aspect-ratio: 1/1; height: calc(80vh/${numOfRows});`)
         container.appendChild(div);
     }
-
+    paintBoxes();
 }
 
 
-createDivs(selectedRows);
 
 
-function coloringBoxes () {
+
+function paintBoxes() {
     let boxes = document.querySelectorAll('.paintBlock');
-
     for (let i=0; i<boxes.length; i++){
+        boxes[i].addEventListener('mousedown', () => {
+                boxes[i].classList.add("colored");
+                boxes[i].classList.remove("base");
+            });
         boxes[i].addEventListener('mouseover', () => {
             if(mouseDown!=false){
                 boxes[i].classList.add("colored");
                 boxes[i].classList.remove("base");
-            }else
+            }
             boxes[i].classList.add("hovered");
         })
         boxes[i].addEventListener('mouseout', () => {
@@ -49,4 +59,3 @@ function coloringBoxes () {
     }
 }
 
-coloringBoxes()

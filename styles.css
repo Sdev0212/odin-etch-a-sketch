@@ -28,9 +28,6 @@ body {
     user-select: none;
 }
 
-.colored {
-    background-color: aqua;
-}
 
 .hovered {
     filter:brightness(0.9);

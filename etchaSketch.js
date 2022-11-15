@@ -1,14 +1,21 @@
 let selectedRows = 4;
 
 const inputs = document.querySelectorAll("input");
-const rowSelection = document.querySelector("#rowNumber")
+const rowSelection = document.querySelector("#rowNumber");
+const clearButton = document.querySelector("#clearButton");
+const colorPicker = document.querySelector("#colorPicker");
+
+
 
 rowSelection.addEventListener('input', () =>{
     selectedRows = parseFloat(rowSelection.value)
     createDivs(selectedRows);
 } )
 
-
+clearButton.addEventListener('click', () => {
+    document.querySelectorAll('.paintBlock').forEach(e => e.classList.remove('colored'));
+    document.querySelectorAll('.paintBlock').forEach(e => e.classList.add('base'));
+})
 
 var mouseDown = false;
 document.addEventListener("mousedown", () => {

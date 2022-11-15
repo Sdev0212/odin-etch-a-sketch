@@ -1,26 +1,28 @@
 let selectedRows = 4;
 let selectedColor = "#000000";
+//set initial color choice and grid size
+
 const inputs = document.querySelectorAll("input");
 const rowSelection = document.querySelector("#rowNumber");
 const clearButton = document.querySelector("#clearButton");
 const colorPicker = document.querySelector("#colorPicker");
+//set constants for inputs
 
-createDivs(4)
+
+createDivs(selectedRows)  //initialize divs on page startup
 
 colorPicker.addEventListener('input', function(e) {
     selectedColor = colorPicker.value;
     return;
 })
-
 rowSelection.addEventListener('input', () =>{
     selectedRows = parseFloat(rowSelection.value)
     createDivs(selectedRows);
 } )
-
 clearButton.addEventListener('click', () => {
     document.querySelectorAll('.paintBlock').forEach(e => e.style.removeProperty("background-color"));
     document.querySelectorAll('.paintBlock').forEach(e => e.classList.add('base'));
-})
+}) //detect inputs
 
 var mouseDown = false;
 document.addEventListener("mousedown", () => {
@@ -28,7 +30,7 @@ document.addEventListener("mousedown", () => {
 })
 document.addEventListener("mouseup", () => {
     mouseDown = false;
-})
+}) //detects holding down mouse button and release
 
 
 
@@ -46,8 +48,7 @@ function createDivs (numOfRows) {
     }
     paintBoxes();
 }
-
-
+//canvas creation
 
 
 
@@ -70,4 +71,13 @@ function paintBoxes() {
         } );
     }
 }
+//logic for painting 
 
+
+
+//possible future features:
+//rainbow mode
+//eraser on right click
+//pick canvas color
+//limit break: button that takes away the limit of divs
+//with a warning that it may cause browser slowdown

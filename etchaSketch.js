@@ -6,8 +6,9 @@ function createDivs (numOfRows) {
 
     for (let i=0; i<numOfDivs; i++){
         const div = document.createElement('div');
+        div.classList.add('paintBlock')
         div.setAttribute('style', 
-        `background-color: black; aspect-ratio: 1/1; height: calc(80vh/${numOfRows});`)
+        `aspect-ratio: 1/1; height: calc(80vh/${numOfRows});`)
         container.appendChild(div);
     }
 
@@ -15,4 +16,15 @@ function createDivs (numOfRows) {
 
 createDivs(4);
 
+let boxes = document.querySelectorAll('.paintBlock');
+for (let i=0; i<boxes.length; i++){
+    boxes[i].addEventListener('mouseover', () => {
+        boxes[i].classList.add("hovered");
+    } );
+}
 
+for (let i=0; i<boxes.length; i++){
+    boxes[i].addEventListener('mouseout', () => {
+        boxes[i].classList.remove("hovered");
+    } );
+}

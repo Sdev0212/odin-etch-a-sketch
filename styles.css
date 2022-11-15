@@ -25,3 +25,11 @@ body {
     height: 80vh;
     aspect-ratio: 1/1;
 }
+
+.hovered {
+    background-color: rgba(100, 100, 100, 0.4);
+}
+
+.clear {
+    background-color: azure;
+}

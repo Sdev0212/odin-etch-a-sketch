@@ -16,6 +16,7 @@ body {
     height: 10vh;
     width: 50vw;
     margin-bottom: 10px;
+    user-select: all;
 }
 
 #container {
@@ -24,12 +25,17 @@ body {
     background-color: azure;
     height: 80vh;
     aspect-ratio: 1/1;
+    user-select: none;
+}
+
+.colored {
+    background-color: aqua;
 }
 
 .hovered {
-    background-color: rgba(100, 100, 100, 0.4);
+    filter:brightness(0.9);
 }
 
-.clear {
+.base {
     background-color: azure;
 }
